@@ -1,6 +1,8 @@
 {
   "dependencies": {
+    "@mux/mux-node": "^7.3.0",
     "expo-av": "^13.2.1",
+    "module": "^1.2.5",
     "react-native-video": "^5.2.1"
   }
 }
