@@ -9,26 +9,33 @@ import { Video, ResizeMode } from "expo-av";
 // const uri = `https://stream.mux.com/Tkgk5LC6an93zK1sDdaPkebJAdx0001E2A00kY1hXzDQ4g.m3u8?token=${jwt}`;
 
 // console.log("JWT", jwt);
+const apiKey = { apiKey: "YOUR API KEY HERE" };
 
 export default function App() {
   const video = useRef(null);
   const [status, setStatus] = useState({});
 
-  // useEffect(()=> {
-  //   (async()=>{
-  //     console.log('API KEY', apiKey)
-  //    const response = await fetch("https://sandbox.api.video/auth/api-key", {method: "POST", headers: {Accept: "application/json", "Content-Type": "application/json"}, body: JSON.stringify(apiKey)}  )
-  //     console.log('RESPONSE', JSON.stringify( await response.json(), null ,3))
-  //     if (response.ok){
-  //     const parsedResponse = await response.json()
-  //         console.log('PARSED RESPONSE', parsedResponse)
-  //     }
-  //     else {
-  //       throw new Error()
-  //     }
-  //   })()
-  //     return
-  // },[])
+  useEffect(() => {
+    (async () => {
+      console.log("API KEY", apiKey);
+      const response = await fetch("https://sandbox.api.video/auth/api-key", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(apiKey),
+      });
+      console.log("RESPONSE", JSON.stringify(await response.json(), null, 3));
+      if (response.ok) {
+        const parsedResponse = await response.json();
+        console.log("PARSED RESPONSE", parsedResponse);
+      } else {
+        throw new Error();
+      }
+    })();
+    return;
+  }, []);
 
   // console.log('JWT', jwt)
   return (
