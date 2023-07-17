@@ -6,24 +6,22 @@ import ApiVideoPlayer from "@api.video/react-native-player";
 
 import { Video, ResizeMode } from "expo-av";
 // let jwt = require("./jwt.json");
-// const uri = `https://stream.mux.com/Tkgk5LC6an93zK1sDdaPkebJAdx0001E2A00kY1hXzDQ4g.m3u8?token=${jwt}`;
-const uri =
-  "https://stream.mux.com/i01NmUZihMOZWL9pO4ZsgD9XbJACexxO5lZZXN7SFr68.m3u8";
+const uri = `https://stream.mux.com/Tkgk5LC6an93zK1sDdaPkebJAdx0001E2A00kY1hXzDQ4g.m3u8?token=${jwt}`;
 
 // console.log("JWT", jwt);
+
 const apiKey = {
-  apiKey: "28vMw62aBjGyUvhwekzdpgjDIQLK9odRLSn062tCCIr",
+  apiKey: "hiz5i9chw31QJRWOkm1H8xd2xAz5eUR0rohX5yQwZO5",
 };
 
 export default function App() {
   const video = useRef(null);
   const [status, setStatus] = useState({});
-  const [token, setToken] = useState("");
 
   // useEffect(() => {
   //   (async () => {
   //     console.log("API KEY", apiKey);
-  //     const response = await fetch("https://ws.api.video/auth/api-key", {
+  //     const response = await fetch("https://sandbox.api.video/auth/api-key", {
   //       method: "POST",
   //       headers: {
   //         Accept: "application/json",
@@ -35,7 +33,6 @@ export default function App() {
   //     if (response.ok) {
   //       const parsedResponse = await response.json();
   //       console.log("PARSED RESPONSE", parsedResponse);
-  //       setToken(parsedResponse.access_token);
   //     } else {
   //       throw new Error();
   //     }
@@ -43,7 +40,7 @@ export default function App() {
   //   return;
   // }, []);
 
-  // console.log("TOKEN", token);
+  // console.log('JWT', jwt)
   return (
     <View style={styles.container}>
       <View style={{ backgroundColor: "yellow", width: 300, height: 300 }}>
@@ -59,17 +56,15 @@ export default function App() {
           onPlaybackStatusUpdate={(status) => setStatus(() => status)}
         />
       </View>
-      <View style={{ backgroundColor: "red", width: 300, height: 300 }}>
-        {/* {token && (
-          <ApiVideoPlayer
-            video={{
-              id: "vi7gDwXbUdULH27ha4DmeW6k",
-              token:
-                "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE2ODkzNjg2NDQuNDg0NTI4LCJuYmYiOjE2ODkzNjg2NDQuNDg0NTI4LCJleHAiOjE2ODkzNzIyNDQuNDg0NTI4LCJwcm9qZWN0SWQiOiJwcm9qZWN0XzFDMUZLZ2EyanZwa2UyN1Rxc21BMlYifQ.CMfqWUNucuJNE8KzTjC5o5agm00zau-gJQsorsQzPnBMLy85qmXoXJWBf3LgL4kkvgrKALoLBtgtqFxeW5EwXCKy0qYfEH03wZhaKUnBxv7JI5J7Y1zOpHhRIZpMajOeZMLkNxUGEdw1nods7MST4VCFh8mmtH9I8COFj1oI1COXn9OxI3u5SuVRHfO1cVV6_QVWFWta7nAVMT5mCdspXypeqcgNP6RqSauiy0Vr5LzxC6P0i0W2Lpm8Xz0hswg8-0OGBr8I8duZP18jusNNF7sfe6Q-w8-sFOJSXuCaPAjsFKvw4A5Ti7VimUOO9_ayWGasAV_TnF3yXMfTwrLqHw",
-            }}
-          />
-        )} */}
-      </View>
+      {/* <View style={{ backgroundColor: "yellow", width: 300, height: 300 }}>
+        <ApiVideoPlayer
+          // videoId="vi4ZfI0bZ9C6ymCGb4uxTOd6"
+          videoId={{
+            id: "vi4ZfI0bZ9C6ymCGb4uxTOd6",
+            token: "a6702bf9-2f61-4fd8-a15a-0ad4c6efe3b2",
+          }}
+        />
+      </View> */}
       <Text>Open up App.js to start working on your app!</Text>
       <StatusBar style="auto" />
     </View>
