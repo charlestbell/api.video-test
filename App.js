@@ -21,7 +21,7 @@ export default function App() {
   useEffect(() => {
     (async () => {
       console.log("API KEY", apiKey);
-      const response = await fetch("https://sandbox.api.video/auth/api-key", {
+      const response = await fetch("https://ws.api.video/auth/api-key", {
         method: "POST",
         headers: {
           Accept: "application/json",
@@ -57,8 +57,16 @@ export default function App() {
           onPlaybackStatusUpdate={(status) => setStatus(() => status)}
         /> */}
       </View>
-      <View style={{ backgroundColor: "yellow", width: 300, height: 300 }}>
-        <ApiVideoPlayer video={{ id: "vi7gDwXbUdULH27ha4DmeW6k", token }} />
+      <View style={{ backgroundColor: "red", width: 300, height: 300 }}>
+        {token && (
+          <ApiVideoPlayer
+            video={{
+              id: "vi7gDwXbUdULH27ha4DmeW6k",
+              token:
+                "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE2ODkzNjg2NDQuNDg0NTI4LCJuYmYiOjE2ODkzNjg2NDQuNDg0NTI4LCJleHAiOjE2ODkzNzIyNDQuNDg0NTI4LCJwcm9qZWN0SWQiOiJwcm9qZWN0XzFDMUZLZ2EyanZwa2UyN1Rxc21BMlYifQ.CMfqWUNucuJNE8KzTjC5o5agm00zau-gJQsorsQzPnBMLy85qmXoXJWBf3LgL4kkvgrKALoLBtgtqFxeW5EwXCKy0qYfEH03wZhaKUnBxv7JI5J7Y1zOpHhRIZpMajOeZMLkNxUGEdw1nods7MST4VCFh8mmtH9I8COFj1oI1COXn9OxI3u5SuVRHfO1cVV6_QVWFWta7nAVMT5mCdspXypeqcgNP6RqSauiy0Vr5LzxC6P0i0W2Lpm8Xz0hswg8-0OGBr8I8duZP18jusNNF7sfe6Q-w8-sFOJSXuCaPAjsFKvw4A5Ti7VimUOO9_ayWGasAV_TnF3yXMfTwrLqHw",
+            }}
+          />
+        )}
       </View>
       <Text>Open up App.js to start working on your app!</Text>
       <StatusBar style="auto" />
